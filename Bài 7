@@ -1,0 +1,49 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Khai báo thông tin các bậc giá và giá bán điện
+        int[] kWhThresholds = { 50, 100, 200, 300, 400 };
+        int[] prices = { 1484, 1533, 1786, 2242, 2503, 2587 };
+        double vatRate = 0.1;
+
+        // Nhập chỉ số điện
+        Console.Write("Nhập chỉ số điện: ");
+        int electricityUsage = int.Parse(Console.ReadLine());
+
+        // Tính tiền điện
+        double totalCost = CalculateElectricityBill(electricityUsage, kWhThresholds, prices);
+        double vat = totalCost * vatRate;
+        double finalCost = totalCost + vat;
+
+        // Hiển thị kết quả
+        Console.WriteLine("Tiền điện: {0}", totalCost);
+        Console.WriteLine("Thuế VAT (10%): {0}", vat);
+        Console.WriteLine("Tổng tiền phải thanh toán: {0}", finalCost);
+
+        Console.ReadKey();
+    }
+
+    static double CalculateElectricityBill(int usage, int[] thresholds, int[] prices)
+    {
+        double totalCost = 0;
+
+        for (int i = 0; i < thresholds.Length; i++)
+        {
+            if (usage <= thresholds[i])
+            {
+                totalCost += usage * prices[i];
+                break;
+            }
+            else
+            {
+                totalCost += thresholds[i] * prices[i];
+                usage -= thresholds[i];
+            }
+        }
+
+        return totalCost;
+    }
+}
