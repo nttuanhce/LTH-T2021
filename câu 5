@@ -1,0 +1,39 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Nhập điểm trung bình của học sinh: ");
+        double diemTrungBinh = double.Parse(Console.ReadLine());
+
+        string xepLoai = "";
+
+        if (diemTrungBinh >= 9.0)
+        {
+            xepLoai = "Xuất sắc";
+        }
+        else if (diemTrungBinh >= 8.0 && diemTrungBinh < 9.0)
+        {
+            xepLoai = "Giỏi";
+        }
+        else if (diemTrungBinh >= 6.5 && diemTrungBinh < 8.0)
+        {
+            xepLoai = "Khá";
+        }
+        else if (diemTrungBinh >= 5.0 && diemTrungBinh < 6.5)
+        {
+            xepLoai = "Trung bình";
+        }
+        else if (diemTrungBinh >= 3.5 && diemTrungBinh < 5.0)
+        {
+            xepLoai = "Yếu";
+        }
+        else
+        {
+            xepLoai = "Kém";
+        }
+
+        Console.WriteLine("Xếp loại của học sinh: " + xepLoai);
+    }
+}
