@@ -1,0 +1,51 @@
+using System;
+
+namespace XepLoaiHocSinh
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Nhập số lượng học sinh
+            Console.WriteLine("Nhập số lượng học sinh: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            // Khởi tạo mảng điểm trung bình
+            float[] diem_tb = new float[n];
+
+            // Nhập điểm trung bình của từng học sinh
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Nhập điểm trung bình của học sinh thứ " + (i + 1) + ": ");
+                diem_tb[i] = Convert.ToSingle(Console.ReadLine());
+            }
+
+            // Xếp loại học sinh
+            for (int i = 0; i < n; i++)
+            {
+                string xep_loai;
+                if (diem_tb[i] >= 8)
+                {
+                    xep_loai = "Giỏi";
+                }
+                else if (diem_tb[i] >= 6.5)
+                {
+                    xep_loai = "Khá";
+                }
+                else if (diem_tb[i] >= 5)
+                {
+                    xep_loai = "Trung bình";
+                }
+                else
+                {
+                    xep_loai = "Yếu";
+                }
+
+                // Xuất kết quả
+                Console.WriteLine("Học sinh thứ " + (i + 1) + " có điểm trung bình là " + diem_tb[i] + ", xếp loại là " + xep_loai);
+            }
+
+            Console.ReadKey();
+        }
+    }
+}
