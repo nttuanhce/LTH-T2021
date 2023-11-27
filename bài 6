@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Nhập vào số tiền t (là bội số của 50.000):");
+        int t = int.Parse(Console.ReadLine());
+
+        int[] menhGia = { 500000, 200000, 100000, 50000 };
+        int[] soToTien = new int[4];
+
+        for (int i = 0; i < menhGia.Length; i++)
+        {
+            if (t >= menhGia[i])
+            {
+                soToTien[i] = t / menhGia[i];
+                t %= menhGia[i];
+            }
+        }
+
+        Console.Write("Số tiền {0} =", t);
+        for (int i = 0; i < menhGia.Length; i++)
+        {
+            if (soToTien[i] > 0)
+            {
+                Console.Write(" {0} tờ {1}", soToTien[i], menhGia[i]);
+            }
+        }
+    }
+}
